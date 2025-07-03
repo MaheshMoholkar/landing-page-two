@@ -32,7 +32,7 @@ export const Features = () => {
             quickly
           </p>
         </div>
-        <div className="mt-16 flex flex-col gap-4 sm:flex-row sm:flex-1">
+        <div className="mt-16 flex flex-col md:max-w-5xl md:mx-auto gap-4 sm:flex-row sm:flex-1">
           {features.map(({ title, description }, idx) => (
             <div
               key={idx}
