@@ -5,7 +5,7 @@ import MenuIcon from "@/assets/icons/menu.svg";
 export const Navbar = () => {
   return (
     <div className="bg-black">
-      <div className="px-4">
+      <div className="px-4 md:container">
         <div className="flex items-center justify-between py-5">
           <div className="relative">
             <div className="absolute w-full top-2 bottom-0 bg-[linear-gradient(to_right,rgba(252,214,255,1),rgba(41,216,255,1),rgba(255,253,128,1),rgba(248,154,191,1),rgba(252,214,255,1))] blur-md"></div>
