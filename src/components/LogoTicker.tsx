@@ -21,9 +21,12 @@ export const LogoTicker = () => {
   ];
 
   return (
-    <div className="py-8 md:py-12 bg-white">
+    <div className="py-8 md:py-12 bg-black text-white">
       <div className="container">
-        <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black,transparent)]">
+        <h2 className="text-center text-xl text-white/70 mb-8">
+          Trusted by the world&apos;s most innovative teams
+        </h2>
+        <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]">
           <motion.div
             className="flex gap-14 flex-none pr-14"
             animate={{
