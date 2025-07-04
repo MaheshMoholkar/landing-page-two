@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export const CallToAction = () => {
   return (
-    <div className="bg-black text-white py-[72px] sm:py-24 text-center">
+    <div className="bg-black text-white py-[72px] sm:py-24 text-center overflow-x-clip">
       <div className="container max-w-xl relative">
         <Image
           src={Helix2Image}
@@ -25,11 +25,11 @@ export const CallToAction = () => {
           Celebrate the joy of accomplishment with an app designed to track your
           progress and motivate your efforts.
         </p>
-        <form className="mt-10 flex flex-col gap-2.5 max-w-sm mx-auto sm:flex-row h-24">
+        <form className="mt-10 flex flex-col gap-2.5 max-w-sm mx-auto sm:flex-row">
           <input
             type="email"
             placeholder="Enter your email"
-            className="bg-white/20 rounded-lg px-5 font-medium placeholder:text-[#9CA3AF] flex-1 h-12"
+            className="bg-white/20 rounded-lg px-5 font-medium placeholder:text-[#9CA3AF] sm:flex-1 h-12"
           />
           <button
             className="bg-white text-black h-12 rounded-lg px-5"
