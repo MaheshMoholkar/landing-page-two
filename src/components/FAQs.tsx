@@ -4,6 +4,7 @@ import { useState } from "react";
 import PlusIcon from "@/assets/icons/plus.svg";
 import MinusIcon from "@/assets/icons/minus.svg";
 import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
 
 const items = [
   {
@@ -38,29 +39,40 @@ const AccordionItem = ({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="py-7 border-b border-white/30">
-      <div
-        className="flex items-center cursor-pointer"
-        onClick={() => setIsOpen(!isOpen)}
-      >
+    <div
+      className="py-7 border-b border-white/30"
+      onClick={() => setIsOpen(!isOpen)}
+    >
+      <div className="flex items-center cursor-pointer">
         <span className="flex-1 text-lg font-bold">{question}</span>
         {isOpen ? <MinusIcon /> : <PlusIcon />}
       </div>
-      <p
-        className={clsx("mt-4", {
-          hidden: !isOpen,
-          block: isOpen,
-        })}
-      >
-        {answer}
-      </p>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className={clsx({
+              hidden: !isOpen,
+              block: isOpen,
+            })}
+            initial={{ opacity: 0, height: 0, marginTop: 0 }}
+            animate={{ opacity: 1, height: "auto", marginTop: 16 }}
+            exit={{ opacity: 0, height: 0, marginTop: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
 
 export const FAQs = () => {
   return (
-    <div className="bg-black text-white bg-gradient-to-b from-[#5D2CA8] to-black py-[72px] sm:py-24">
+    <div
+      id="faqs"
+      className="bg-black text-white bg-gradient-to-b from-[#5D2CA8] to-black py-[72px] sm:py-24"
+    >
       <div className="container">
         <h2 className="text-center text-5xl sm:text-6xl sm:max-w-[648px] mx-auto font-bold tracking-tighter">
           Frequently Asked Questions

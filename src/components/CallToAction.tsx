@@ -2,22 +2,47 @@
 
 import Helix2Image from "@/assets/images/helix2.png";
 import EmojiStarImage from "@/assets/images/emojistar.png";
-import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export const CallToAction = () => {
+  const ref = useRef<HTMLImageElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end end"],
+  });
+  const translateY = useTransform(scrollYProgress, [0, 1], [80, -80]);
+
   return (
-    <div className="bg-black text-white py-[72px] sm:py-24 text-center overflow-x-clip">
+    <div
+      id="cta"
+      className="bg-black text-white py-[72px] sm:py-24 text-center overflow-x-clip"
+    >
       <div className="container max-w-xl relative">
-        <Image
-          src={Helix2Image}
-          alt="Helix2"
-          className="hidden sm:block absolute top-6 left-[calc(100%+36px)]"
-        />
-        <Image
-          src={EmojiStarImage}
-          alt="EmojiStar"
-          className="hidden sm:block absolute -top-[120px] right-[calc(100%+24px)]"
-        />
+        <motion.div drag>
+          <motion.img
+            ref={ref}
+            src={Helix2Image.src}
+            alt="Helix2"
+            className="hidden sm:block absolute top-6 left-[calc(100%+36px)]"
+            style={{
+              translateY: translateY,
+            }}
+            draggable={false}
+          />
+        </motion.div>
+        <motion.div drag>
+          <motion.img
+            ref={ref}
+            src={EmojiStarImage.src}
+            alt="EmojiStar"
+            className="hidden sm:block absolute -top-[120px] right-[calc(100%+24px)]"
+            style={{
+              translateY: translateY,
+            }}
+            draggable={false}
+          />
+        </motion.div>
         <h2 className="text-5xl font-bold tracking-tighter sm:text-6xl">
           Get instant access
         </h2>

@@ -16,7 +16,7 @@ export const Navbar = () => {
           </div>
           <nav className="hidden sm:flex gap-6 items-center">
             <a
-              href="#about"
+              href="#faqs"
               className="text-white text-opacity-60  hover:text-opacity-100 transition"
             >
               About
@@ -38,12 +38,6 @@ export const Navbar = () => {
               className="text-white text-opacity-60  hover:text-opacity-100 transition"
             >
               Help
-            </a>
-            <a
-              href="#testimonials"
-              className="text-white text-opacity-60  hover:text-opacity-100 transition"
-            >
-              Customers
             </a>
             <button className="btn btn-primary">Get for free</button>
           </nav>
