@@ -9,7 +9,7 @@ export const ProductShowcase = () => {
   const ref = useRef<HTMLImageElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end center"],
+    offset: ["start end", "end end"],
   });
   const rotateX = useTransform(scrollYProgress, [0, 1], [15, 0]);
   const opacity = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
